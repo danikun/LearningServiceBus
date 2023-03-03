@@ -1,0 +1,39 @@
+﻿@page
+@model PatientApp.Pages.BookVisit
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Booking</title>
+    
+    <script type="text/javascript">
+        const id = '@Model.Id';
+        console.log(id);
+    </script>
+</head>
+<body>
+<div>
+    @if (Model.Confirmed)
+    {
+        <h1>Booking confirmed!</h1>
+    }
+    else
+    {
+        <h1>Booking your visit...</h1>    
+    }
+</div>
+
+<form id="confirm" method="get">
+    <input type="hidden" name="confirmed" value="true"/>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.3/signalr.min.js" integrity="sha512-/rQxup+foY5qwZmEmvBhb0PHxx/Fd+ESH7Xw+pozdSKhygl+ZSQm1X6LWDQrxz+NoRAZwR03X78UinlY1C4RrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
